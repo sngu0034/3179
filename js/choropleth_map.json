@@ -1,0 +1,249 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "background": "white",
+  "padding": 5,
+  "width": 1000,
+  "height": 500,
+  "title": {
+    "text": "Exploring Internet Accessibility: Users, Plans, and Costs by Country",
+    "frame": "group"
+  },
+  "style": "cell",
+  "data": [
+    {
+      "name": "source_0",
+      "url": "https://raw.githubusercontent.com/sngu0034/3179/main/data/internet_edited.csv",
+      "format": {"type": "csv", "delimiter": ","},
+      "transform": [
+        {"type": "filter", "expr": "datum['NO. OF Internet Plans'] > 0"},
+        {"type": "filter", "expr": "datum['Internet users'] > 0"},
+        {"type": "filter", "expr": "datum['Average price of 1GB (USD)'] > 0"},
+        {
+          "type": "filter",
+          "expr": "Continent_selection == null || datum['Continental region'] == Continent_selection"
+        }
+      ]
+    },
+    {
+      "name": "data_0",
+      "source": "source_0",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "isValid(datum[\"Internet users\"]) && isFinite(+datum[\"Internet users\"]) && isValid(datum[\"NO. OF Internet Plans\"]) && isFinite(+datum[\"NO. OF Internet Plans\"]) && isValid(datum[\"Average price of 1GB (USD)\"]) && isFinite(+datum[\"Average price of 1GB (USD)\"])"
+        }
+      ]
+    },
+    {
+      "name": "data_1",
+      "source": "source_0",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "isValid(datum[\"Internet users\"]) && isFinite(+datum[\"Internet users\"]) && isValid(datum[\"NO. OF Internet Plans\"]) && isFinite(+datum[\"NO. OF Internet Plans\"])"
+        }
+      ]
+    }
+  ],
+  "signals": [
+    {
+      "name": "Continent_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "NORTHERN AMERICA",
+          "SOUTH AMERICA",
+          "EASTERN EUROPE",
+          "SUB-SAHARAN AFRICA",
+          "ASIA",
+          "OCEANIA"
+        ],
+        "labels": [
+          "Show All",
+          "NORTHERN AMERICA",
+          "SOUTH AMERICA",
+          "EASTERN EUROPE",
+          "SUB-SAHARAN AFRICA",
+          "ASIA",
+          "OCEANIA"
+        ],
+        "name": "Continental Region Selection: "
+      }
+    }
+  ],
+  "marks": [
+    {
+      "name": "layer_0_marks",
+      "type": "symbol",
+      "style": ["circle"],
+      "from": {"data": "data_0"},
+      "encode": {
+        "update": {
+          "opacity": {"value": 0.6},
+          "fill": {"scale": "color", "field": "Continental region"},
+          "tooltip": {
+            "signal": "{\"Country\": isValid(datum[\"Country\"]) ? datum[\"Country\"] : \"\"+datum[\"Country\"], \"Population\": format(datum[\"Population\"], \",\"), \"Internet users\": format(datum[\"Internet users\"], \",\"), \"NO\\. OF Internet Plans\": format(datum[\"NO. OF Internet Plans\"], \",\"), \"Average price of 1GB (USD)\": format(datum[\"Average price of 1GB (USD)\"], \",\")}"
+          },
+          "ariaRoleDescription": {"value": "circle"},
+          "description": {
+            "signal": "\"Internet users: \" + (format(datum[\"Internet users\"], \"\")) + \"; Number of Internet Plans: \" + (format(datum[\"NO. OF Internet Plans\"], \"\")) + \"; Continental region: \" + (isValid(datum[\"Continental region\"]) ? datum[\"Continental region\"] : \"\"+datum[\"Continental region\"]) + \"; Average price of 1GB (USD): \" + (format(datum[\"Average price of 1GB (USD)\"], \".2s\")) + \"; Country: \" + (isValid(datum[\"Country\"]) ? datum[\"Country\"] : \"\"+datum[\"Country\"]) + \"; Population: \" + (format(datum[\"Population\"], \",\")) + \"; NO\\. OF Internet Plans: \" + (format(datum[\"NO. OF Internet Plans\"], \",\"))"
+          },
+          "x": {"scale": "x", "field": "Internet users"},
+          "y": {"scale": "y", "field": "NO\\. OF Internet Plans"},
+          "size": {"scale": "size", "field": "Average price of 1GB (USD)"},
+          "shape": {"value": "circle"}
+        }
+      }
+    },
+    {
+      "name": "layer_1_marks",
+      "type": "text",
+      "style": ["text"],
+      "from": {"data": "data_1"},
+      "encode": {
+        "update": {
+          "align": {"value": "right"},
+          "baseline": {"value": "right"},
+          "dx": {"value": -10},
+          "fontSize": {"value": 10},
+          "fontStyle": {"value": "italic"},
+          "fill": {"value": "black"},
+          "opacity": [
+            {
+              "test": "datum['Country'] == 'Tuvalu' || datum['Country'] == 'Sierra Leone' || datum['Country'] == 'South Korea' || datum['Country'] == 'Germany' || datum['Country'] == 'Iraq' || datum['Country'] == 'Malawi' ||  datum['Country'] == 'United States'",
+              "value": 1
+            },
+            {"value": 0}
+          ],
+          "tooltip": {
+            "signal": "{\"Country\": isValid(datum[\"Country\"]) ? datum[\"Country\"] : \"\"+datum[\"Country\"], \"Population\": format(datum[\"Population\"], \",\"), \"Internet users\": format(datum[\"Internet users\"], \",\"), \"NO\\. OF Internet Plans\": format(datum[\"NO. OF Internet Plans\"], \",\"), \"Average price of 1GB (USD)\": format(datum[\"Average price of 1GB (USD)\"], \",\")}"
+          },
+          "description": {
+            "signal": "\"Internet users: \" + (format(datum[\"Internet users\"], \"\")) + \"; Number of Internet Plans: \" + (format(datum[\"NO. OF Internet Plans\"], \"\")) + \"; Country: \" + (isValid(datum[\"Country\"]) ? datum[\"Country\"] : \"\"+datum[\"Country\"]) + \"; Population: \" + (format(datum[\"Population\"], \",\")) + \"; NO\\. OF Internet Plans: \" + (format(datum[\"NO. OF Internet Plans\"], \",\")) + \"; Average price of 1GB (USD): \" + (format(datum[\"Average price of 1GB (USD)\"], \",\"))"
+          },
+          "x": {"scale": "x", "field": "Internet users"},
+          "y": {"scale": "y", "field": "NO\\. OF Internet Plans"},
+          "text": {
+            "signal": "isValid(datum[\"Country\"]) ? datum[\"Country\"] : \"\"+datum[\"Country\"]"
+          }
+        }
+      }
+    }
+  ],
+  "scales": [
+    {
+      "name": "x",
+      "type": "log",
+      "domain": [1, 900000000],
+      "range": [0, {"signal": "width"}]
+    },
+    {
+      "name": "y",
+      "type": "linear",
+      "domain": [1, 65],
+      "range": [{"signal": "height"}, 0],
+      "zero": false
+    },
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": [
+        "NORTHERN AMERICA",
+        "SOUTH AMERICA",
+        "EASTERN EUROPE",
+        "SUB-SAHARAN AFRICA",
+        "ASIA (EX. NEAR EAST)",
+        "OCEANIA"
+      ],
+      "range": [
+        "#e41a1c",
+        "#984ea3",
+        "#ff7f00",
+        "#a6cee3",
+        "#377eb8",
+        "#a65628"
+      ]
+    },
+    {
+      "name": "size",
+      "type": "threshold",
+      "domain": [1, 2, 4, 6, 10],
+      "range": [10, 50, 100, 200, 300, 400]
+    }
+  ],
+  "axes": [
+    {
+      "scale": "x",
+      "orient": "bottom",
+      "tickCount": 8,
+      "gridScale": "y",
+      "grid": true,
+      "domain": false,
+      "labels": false,
+      "aria": false,
+      "maxExtent": 0,
+      "minExtent": 0,
+      "ticks": false,
+      "zindex": 0
+    },
+    {
+      "scale": "y",
+      "orient": "left",
+      "tickCount": 7,
+      "gridScale": "x",
+      "grid": true,
+      "domain": false,
+      "labels": false,
+      "aria": false,
+      "maxExtent": 0,
+      "minExtent": 0,
+      "ticks": false,
+      "zindex": 0
+    },
+    {
+      "scale": "x",
+      "orient": "bottom",
+      "grid": false,
+      "title": "Internet users",
+      "tickCount": 8,
+      "labelFlush": true,
+      "labelOverlap": "greedy",
+      "zindex": 0
+    },
+    {
+      "scale": "y",
+      "orient": "left",
+      "grid": false,
+      "title": "Number of Internet Plans",
+      "tickCount": 7,
+      "labelOverlap": true,
+      "zindex": 0
+    }
+  ],
+  "legends": [
+    {
+      "fill": "color",
+      "symbolType": "circle",
+      "title": "Continental region",
+      "encode": {"symbols": {"update": {"opacity": {"value": 0.6}}}}
+    },
+    {
+      "format": ".2s",
+      "size": "size",
+      "labelOverlap": "greedy",
+      "symbolType": "circle",
+      "title": "Average price of 1GB (USD)",
+      "encode": {
+        "symbols": {
+          "update": {
+            "fill": {"value": "black"},
+            "fillOpacity": {"value": 0.6},
+            "opacity": {"value": 0.6},
+            "stroke": {"value": "transparent"}
+          }
+        }
+      }
+    }
+  ]
+}
