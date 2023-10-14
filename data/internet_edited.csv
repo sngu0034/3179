@@ -82,7 +82,7 @@ S.NO,Country code,Country,Continental region,NO. OF Internet Plans,Average price
 80,GG,Guernsey,Europe,14,1.46,0.16,54.84,1.24,3.05,,,
 81,SA,Saudi Arabia,Asia,60,1.47,0.33,13.33,2.12,5.62,27048861,33702756,102.79
 82,UY,Uruguay,South America,35,1.51,0.1,6.33,1.58,2.8,2360269,3449285,34.43
-83,DO,Dominican Republic,South America,22,1.51,0.33,18.17,0.74,1.28,6997472,10627141,20.7
+83,DO,Dominican Rep.,South America,22,1.51,0.33,18.17,0.74,1.28,6997472,10627141,20.7
 84,IR,Iran,Asia,52,1.52,0.22,6.21,0.75,1.88,78086663,81800188,24.9
 85,UG,Uganda,Africa,60,1.56,0.45,22.71,1.62,5.02,10162807,42729036,15.99
 86,HN,Honduras,North America,22,1.56,0.69,50,3.12,4.69,2977793,9587522,20.73
@@ -124,7 +124,7 @@ S.NO,Country code,Country,Continental region,NO. OF Internet Plans,Average price
 122,CR,Costa Rica,North America,15,2.36,1.6,2.94,2.74,4.89,3511549,4999441,17.46
 123,BL,Saint Barthélemy (St. Barts),South America,17,2.36,0.59,106.49,4.06,5.04,,,
 124,AR,Argentina,South America,28,2.38,0.44,11.47,1.45,7.4,33561876,44361150,20.64
-125,BA,Bosnia and Herzegovina,Europe,24,2.39,0.63,21.26,3.04,3.05,2320000,3323925,28.49
+125,BA,Bosnia and Herz.,Europe,24,2.39,0.63,21.26,3.04,3.05,2320000,3323925,28.49
 126,VC,Saint Vincent and the Grenadines,South America,13,2.41,1.48,3.33,3.33,3.58,72048,110211,
 127,GD,Grenada,South America,13,2.44,1.84,4.44,5.37,12,63692,111454,
 128,PY,Paraguay,South America,27,2.53,0.73,9.12,2.3,11.56,4160340,6956066,15.15
@@ -152,7 +152,7 @@ S.NO,Country code,Country,Continental region,NO. OF Internet Plans,Average price
 150,MV,Maldives,Asia,23,3.24,1.85,12.95,3.88,5.79,275717,515696,47.93
 151,SL,Sierra Leone,Africa,21,3.26,2.17,4.4,3.69,9.22,1000575,7650150,
 152,ML,Mali,Africa,42,3.28,1.2,169.79,4.12,12.37,2358540,19077749,
-153,US,United States,North America,45,3.33,1,30,8,8.34,312320000,327096265,61.12
+153,US,United States of America,North America,45,3.33,1,30,8,8.34,312320000,327096265,61.12
 154,DE,Germany,Europe,60,3.38,0.35,11.83,4.06,6.96,77794405,83124418,55.7
 155,JP,Japan,Asia,35,3.38,0.88,45.53,3.91,10.4,117400000,127202192,44.05
 156,MF,Saint-Martin (France),South America,40,3.46,0.59,106.49,3.32,8.46,,,
@@ -210,11 +210,11 @@ S.NO,Country code,Country,Continental region,NO. OF Internet Plans,Average price
 209,SB,Solomon Islands,Oceania,22,7.83,3.14,12.55,8.53,8.37,72872,652857,
 210,FM,Micronesia,Oceania,7,7.85,0.99,59.16,7.2,12.87,37257,112640,
 211,TC,Turks and Caicos Islands,South America,15,8,5,23,13.33,23.09,,,
-212,CZ,Czech Republic,Europe,34,8.15,0.94,36.05,7.95,32.71,8358728,10665677,44.55
+212,CZ,Czech Rep.,Europe,34,8.15,0.94,36.05,7.95,32.71,8358728,10665677,44.55
 213,GR,Greece,Europe,22,8.16,1.06,768.87,12.06,4.91,7923438,10522246,59.42
 214,SC,Seychelles,Africa,21,8.64,2.36,22.67,11.43,19.55,55677,97096,
 215,CY,Cyprus,Asia,22,8.84,2.06,59.1,13.56,20.25,952369,1189265,75.48
-216,CF,Central African Republic,Africa,13,9.03,3.01,60.21,8.25,6.03,202204,4666368,
+216,CF,Central African Rep.,Africa,13,9.03,3.01,60.21,8.25,6.03,202204,4666368,
 217,VG,Virgin Islands (British),South America,32,9.54,3.38,29.9,12.5,18.55,,,
 218,KI,Kiribati,Oceania,28,9.94,2.35,22.87,10.5,11.05,16971,115847,
 219,BQ,South America Netherlands,South America,13,10.94,6.25,24,9.95,9.57,,,
@@ -239,5 +239,5 @@ S.NO,Country code,Country,Continental region,NO. OF Internet Plans,Average price
 239,VA,Vatican City (Holy See),Europe,,,,,,,,,
 240,VE,Venezuela,South America,,,,,,,20564451,28887118,5.68
 241,WF,Wallis and Futuna,Oceania,,,,,,,1383,11661,
-242,CD,Democratic Republic of the Congo,Africa,,,,,,,7011507,84068091,12.08
+242,CD,Dem. Rep. Congo,Africa,,,,,,,7011507,84068091,12.08
 243,ZW,Zimbabwe,Africa,,,,,,,4472992,14438802,13.99
