@@ -1,0 +1,39 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Internet usage by Continentw.",
+  "width": 800,
+  "height": 400,
+   "data": {"url": "https://raw.githubusercontent.com/sngu0034/3179/main/data/internet_edited.csv"
+  },
+  "layer": [
+    {"mark": {
+      "type": "arc", 
+      "innerRadius": 20, 
+      "stroke": "#fff"}
+  },{
+    "mark": {"type": "text", "radiusOffset": 10},
+    "encoding": {
+      "text": {"field": "Continental region", "type": "nominal"}
+    }
+  }],
+  "encoding": {
+    "theta": {"field": "Continental region", "type": "nominal", "stack": true},
+    "radius": {
+      "field": "Internet users", 
+      "aggregate" : "sum",
+      "scale": {"type": "sqrt", "zero": true, "rangeMin": 10}},
+    "color": {
+      "field": "Continental region", 
+      "type": "nominal", 
+      "legend": null}, 
+    "tooltip": [
+      {"field": "Continental region", 
+      "type": "ordinal", 
+      "title": "Continental region"},
+      {"field": "Internet users", 
+      "title": "Total Internet users",
+      "aggregate" : "sum",
+      "type": "quantitative"}
+    ]
+  }
+}
