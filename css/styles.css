@@ -1,1 +1,84 @@
-body
+label{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body *{
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+    font-weight: 900;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+body {
+    background-color: #add8e6;
+}
+
+.page {
+    width: 1000px;
+    background-color: white;
+    margin: auto;
+    padding: 50px;
+    padding-top: 35px;
+  }
+
+  .vis-container {
+    width: 100%;
+    border-style: solid;
+    border-color: black;
+  }
+
+  .description h2,
+  h1 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  
+  .description-right {
+    padding-left: 20px;
+    text-align: justify;
+  }
+  
+  .description-left {
+    padding-right: 20px;
+    text-align: justify;
+  }
+  
+  .margin-bottom {
+    margin-bottom: 20px;
+  }
+  
+  .small-font {
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .centered {
+    max-width: 55ch;
+    text-align: center;
+    margin: auto;
+    width: 120%;
+    height: 100%;
+    text-align: justify;
+  }
+  
+  .pure-g {
+    background-color: white;
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+  
+  .pure-g1 {
+    background-color: rgb(104, 186, 222, 0.6);
+    padding: 25px;
+  }
+  
+  .pure-g2 {
+    background-color: rgb(104, 186, 222, 0.6);
+    padding: 2px;
+  }
