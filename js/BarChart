@@ -1,0 +1,117 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Top 5 Countries with Highest Average Price of 1GB (USD)",
+  "data": {
+    "url": "https://raw.githubusercontent.com/sngu0034/3179/main/data/internet_edited.csv"
+  },
+  "params": [
+    {
+      "name": "Continent_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "North America",
+          "South America",
+          "Europe",
+          "Africa",
+          "Asia",
+          "Oceania"
+        ],
+        "labels": [
+          "Show All",
+          "North America",
+          "South America",
+          "Europe",
+          "Africa",
+          "Asia",
+          "Oceania"
+        ],
+        "name": "Continent Selection: "
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "datum['Average price of 1GB (USD)'] > 0"},
+    {
+      "filter": "Continent_selection == null || datum['Continental region'] == Continent_selection"
+    },
+    {
+      "window": [
+        {"op": "rank", "as": "rank"}
+      ],
+      "sort": [
+        {"field": "Average price of 1GB (USD)","order": "descending"}
+      ]
+    },
+    {"filter": "datum.rank <= 7"}
+  ],
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "Average price of 1GB (USD)",
+      "title": "Average price of 1GB (USD)",
+      "type": "quantitative",
+      "scale": {"domain": [0, 12]}
+
+    },
+    "y": {
+      "field": "Country",
+      "title": "Countries",
+      "type": "nominal",
+      "sort": {
+        "field": "Average price of 1GB (USD)",
+        "op": "average",
+        "order": "descending"
+      }
+    }
+  }, 
+  "layer": [
+    {
+      "mark": "bar",
+      "encoding": {
+        "color": {
+          "field": "Continental region",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "North America",
+              "South America",
+              "Europe",
+              "Africa",
+              "Asia",
+              "Oceania"
+            ],
+            "range": [
+              "#e41a1c",
+              "#984ea3",
+              "#ff7f00",
+              "#a6cee3",
+              "#377eb8",
+              "#a65628"
+            ]
+          }
+        },
+        "opacity": {"value": 1},
+        "tooltip": [
+          {"field": "Country", "type": "nominal"},
+          {"field": "Continental region", "type": "nominal"},
+          {"field": "Average price of 1GB (USD)", "type": "quantitative", "format": ","}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 5,
+        "fontSize": 10
+      },
+      "encoding": {
+        "text": {"field": "Average price of 1GB (USD)", "type": "quantitative"}
+
+      }
+    }
+  ]
+}
