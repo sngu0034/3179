@@ -1,6 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Top 5 Countries with Highest Average Price of 1GB (USD)",
+  "title": "Top 5 Countries with Highest Average Price of 1GB (USD)",
+  "width": 350,
+  "height": 200,
   "data": {
     "url": "https://raw.githubusercontent.com/sngu0034/3179/main/data/internet_edited.csv"
   },
@@ -44,15 +46,14 @@
         {"field": "Average price of 1GB (USD)","order": "descending"}
       ]
     },
-    {"filter": "datum.rank <= 7"}
+    {"filter": "datum.rank <= 5"}
   ],
   "mark": "bar",
   "encoding": {
     "x": {
       "field": "Average price of 1GB (USD)",
       "title": "Average price of 1GB (USD)",
-      "type": "quantitative",
-      "scale": {"domain": [0, 12]}
+      "type": "quantitative"
 
     },
     "y": {
@@ -71,6 +72,7 @@
       "mark": "bar",
       "encoding": {
         "color": {
+          "legend": {"orient": "top", "columns":6},
           "field": "Continental region",
           "type": "nominal",
           "scale": {
@@ -83,12 +85,12 @@
               "Oceania"
             ],
             "range": [
-              "#e41a1c",
-              "#984ea3",
-              "#ff7f00",
-              "#a6cee3",
-              "#377eb8",
-              "#a65628"
+              "#4477AA",
+              "#66CCEE",
+              "#228833",
+              "#CCBB44",
+              "#EE6677",
+              "#AA3377"
             ]
           }
         },
