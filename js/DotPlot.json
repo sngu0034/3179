@@ -1,0 +1,97 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Average Internet Price Comparison Across Continents (2020-2022)",
+  "width": 480,
+  "height": 200,
+  "data": {
+    "url": "https://raw.githubusercontent.com/sngu0034/3179/main/data/internet_edited.csv"
+  },
+  "params": [
+    {
+      "name": "ChangeYear",
+      "value": "AveragePrice2022",
+      "bind": {
+        "input": "select",
+        "options": [
+          "AveragePrice2022", 
+          "AveragePrice2021", 
+          "AveragePrice2020"],
+        "labels": [
+          "2022",
+          "2021",
+          "2020"
+        ],
+        "name": "Year Selection: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "aggregate": [
+        {
+          "op": "average", 
+          "field": "Average price of 1GB (USD)", 
+          "as": "AveragePrice2022"
+        },
+        {
+          "op": "average", 
+          "field": "Average price of 1GB (USD  at the start of 2021)",
+          "as": "AveragePrice2021"
+        },
+        {
+          "op": "average", 
+          "field": "Average price of 1GB (USD – at start of 2020)",
+          "as": "AveragePrice2020"}
+      ],
+      "groupby": ["Continental region"]
+    },
+    {
+      "calculate": "datum[ChangeYear]",
+      "as": "selectedFactor"
+    }
+  ],
+  "mark": "circle",
+  "encoding": {
+    "x": {
+          "field": "selectedFactor", 
+          "type": "quantitative",
+          "title" : "Average Price of 1GB (USD)",
+          "scale": {"domain": [0, 12]}
+          },
+    "y": {
+          "field": "Continental region", 
+          "type": "nominal"
+          },
+      "color": {
+        "field": "Continental region", 
+        "type": "nominal", 
+        "legend": null, 
+        "scale": {
+          "domain": [
+            "North America",
+            "South America",
+            "Europe",
+            "Africa",
+            "Asia",
+            "Oceania"
+          ],
+          "range": [
+            "#4477AA",
+            "#66CCEE",
+            "#228833",
+            "#CCBB44",
+            "#EE6677",
+            "#AA3377"
+          ]
+        }
+      },
+    "size": {"value": 500},
+    "tooltip": [
+      {"field": "Continental region", "title": "Continental region"},
+      {
+        "field": "selectedFactor", 
+        "title": "Average price of 1GB (USD)", 
+        "format": ".2f"}
+    ]
+  }
+}

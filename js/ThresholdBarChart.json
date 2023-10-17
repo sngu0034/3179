@@ -1,0 +1,116 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 500,
+  "height": 300,
+  "title": "Top 3 Fastest Continents",
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/sngu0034/3179/main/data/internet_edited.csv"
+      },
+      "layer": [{
+        "mark": "bar",
+        "transform": [
+          {
+          "aggregate": [
+            {
+              "op": "average",
+              "field": "Avg (Mbit/s)",
+              "as": "AverageSpeed"
+            }
+          ],
+          "groupby": ["Continental region"]
+          }
+        ],
+        "encoding": {
+          "x": {"field": "Continental region", "type": "nominal", "axis": {"labelAngle": 0}},
+          "y": {"field": "AverageSpeed", "type": "quantitative"},
+          "color": {"value": "lightgray"},
+          "tooltip": [
+          {
+            "field": "Continental region", 
+            "type": "nominal", 
+            "title": "Continental region"
+          },
+          {
+            "field": "AverageSpeed", 
+            "type": "quantitative",
+            "format": ".2f",
+            "title": "Average Internet Speed in (Mbit/s)"
+            }
+        ]
+        }
+      }, 
+      {
+        "mark": "bar",
+        "transform": [
+          {
+          "aggregate": [
+            {
+              "op": "average",
+              "field": "Avg (Mbit/s)",
+              "as": "AverageSpeed"
+            }
+          ],
+          "groupby": ["Continental region"]
+          },
+          {"filter": "datum.AverageSpeed >= 30.9"},
+          {"calculate": "30.9", "as": "baseline"}
+        ],
+        "encoding": {
+          "x": {"field": "Continental region", "type": "nominal"},
+          "y": {"field": "baseline", "type": "quantitative", "axis": {"title": "Average Speed"}},
+          "y2": {"field": "AverageSpeed"},
+          "color": {"value": "#ff895d"},
+          "tooltip": [
+          {
+            "field": "Continental region", 
+            "type": "nominal", 
+            "title": "Continental region"
+          },
+          {
+            "field": "AverageSpeed", 
+            "type": "quantitative",
+            "format": ".2f",
+            "title": "Average Internet Speed in (Mbit/s)"
+            }
+        ]
+        }
+      }
+    ]}, {
+      "data": {
+         "values": [{}]
+      },
+      "encoding": {
+        "y": {"datum": 30.9}
+      },
+      "layer": [{
+        "mark": "rule"
+      }, 
+      {
+        "mark": {
+          "type": "text",
+          "align": "right",
+          "baseline": "bottom",
+          "dx": -2,
+          "dy": -2,
+          "x": "width",
+          "text": "Top 3 Cut Off"
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "right",
+          "baseline": "bottom",
+          "dx": -10,
+          "dy": -115,
+          "x": "width",
+          "text": "Oceania has the fastest average internet speed",
+          "color":"#ff895d"
+        }
+      }
+      ]
+    }
+  ]
+}
