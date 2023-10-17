@@ -25,104 +25,181 @@
 </head>
 
 <body>
-
     <div class="page">
   
-      <!-- pure grid group -->
-      <div class="pure-g1">
+      <!-- pure grid group INTRODUCTION-->
+      <div class="pure-g">
         <div class="pure-u-1-1">
           <h1>Global Internet Trends in 2022</h1>
         </div>
-      </div>
-      
-  
-      <div class="pure-g">
-        <div class="pure-u-1-1">
-          <div class="centered">
-            <p>topic summary</p>
+        <div class="pure-u-1-2">
+          <div class="description description-left">
+            <p>
+              <b>Why?</b></br> This infographic aims to show the trends such as changes in internet speed and,
+               as well as differences in accessibility across various regions.  
+            </p>
+          </div>
+        </div>
+
+        <div class="pure-u-1-2">
+          <div class="description description-right">
+            <p>
+              <b>How?</b></br> By understanding the information surrounding internet speeds, prices, plans, 
+              and user relationships - we can gain valuable insight into the digital connectivity 
+              of the world. 
+            </p>
           </div>
         </div>
       </div>
-  
+      <!-- end pure grid group -->
+
+      <!-- pure grid group CHOROPLETH-->
       <div class="pure-g">
         <div class="pure-u-1-1">
-          <h2>Internet Speeds</h2>
+          <h2>Internet Usage</h2>
           <div id="vis1" class="vis-container pure-u-1-1"></div>
         </div>
-      
           <div class="pure-u-1-2">
             <div class="description description-left">
-              <p>dsjknfds </p>
+              <p>
+                Taking a global perspective, we can see that many developed regions like <b>North America</b> 
+                , <b>Oceania</b>, and <b>Europe</b> can be seen to have a high proportion of internet 
+                users relative to their total population.
+              </p>
             </div>
           </div>
   
           <div class="pure-u-1-2">
             <div class="description description-right">
               <p>
-                sdfsdfs  </p>
+                In contrast, less developed areas such as <b>Africa</b> are highlighted in shades of 
+                orange, being on the lower end of our scale, it represents a relatively lower 
+                proportion of internet users compared to other continents.
+              </p>
             </div>
           </div>
       </div>
-  
-      <!-- pure grid group -->
-        <div class="pure-g margin-bottom">
-          <div class="pure-u-1-2">
-            <div class="description description-left">
-              <h2>Internet Usage by Continent</h2>
-              <p> sdnkjsdnfk </p>
-            </div>
-          </div>
 
-          <div class="pure-u-1-2">
-            <div id="vis2" class="vis-container2"></div>
+      <!-- pure grid group BUBBLE -->
+      <div class="pure-g">
+        <div class="pure-u-1-3">
+          <div class="description description-left">
+            <h2>Internet Accessibility</h2>
+            <p>
+              In 2022, worldwide <b>internet accessibility varied</b> across continents. 
+              <br><br>
+              It is important 
+              to highlight that even within a single continental region, countries may experience 
+              <b>different levels</b> of internet accessibility. When taking a closer look at North 
+              America, we can see a distinct example. Greenland displays the lowest number of 
+              internet users as well as having the most limited selection of internet plans, 
+              while Canada has one of the highest numbers of internet users along with the widest 
+              range of internet plans. 
+              <br><br>
+              Another notable observation refers to the African continent, where it can be seen 
+              to display a <b>higher frequency of occurrences and larger bubbles</b>. This would mean that 
+              certain countries such as Malawi tend to pay a higher average price for 1GB of internet
+               data, especially when the number of internet plans available is below 20. 
+          </p>
           </div>
         </div>
-  
-        <div class="pure-g margin-bottom">
-          <div class="pure-u-1-2">
-            <div class="description description-left">
-              <h2>Something </h2>
+        <div class="pure-u-2-3">
+          <div id="vis2" class="vis-container"></div>
+        </div>
+
+      </div>
+      <!-- end pure grid group -->
+
+      <!-- pure grid group BAR AND DOT -->
+      <div class="pure-g">
+        <div class="pure-u-2-3">
+          <div id="vis3" class="vis-container pure-u-2-3"></div>
+        </div>
+          <div class="pure-u-1-3">
+            <div class="description description-right">
+              <h2>Internet Prices</h2>
+              <p>
+                Among the top five countries with the highest average price for 1GB of internet data, 
+                two are in the <b>African continent</b>. The countries that are the <b>costliest</b> within their 
+                respective continents would be Canada, the Virgin Islands, Greece, the Central 
+                African Republic, Cyprus, and Kiribati. 
+                <br><br>
+                As of 2022, Oceania is the place with the highest average internet price at <b>$5.50 
+                per 1GB</b> compared to Europe’s <b>$2.56 for the same amount</b> of data. 
+              </p>
             </div>
           </div>
+        <div class="pure-u-2-3">
+          <div id="vis4" class="vis-container pure-u-2-3"></div>
+        </div>
+          <div class="pure-u-1-3">
+            <div class="description description-left">
+            <p>
+              When we cycle through the years starting from 2022 to 2020, we can observe an 
+              interesting trend. Every year going back to 2020, the <b>average internet price for 
+              all continents was increasing</b>. This could have been due to many factors such as 
+              the <b>COVID-19 pandemic</b> where there was a demand for digital connectivity in times 
+              of isolation.  
+            </p>
+            </div>
+          </div>
+      </div>
+      <!-- end pure grid group -->
 
-          <div class="pure-u-1-2">
-            <div id="vis3" class="vis-container2"></div>
+      <!-- pure grid group THRESHOLD -->
+      <div class="pure-g">
+        <div class="pure-u-1-3">
+          <div class="description description-left">
+            <h2>Internet Speed</h2>
+            <p>
+              <b>Oceania</b> takes the top spot as the continent with the fastest average internet speed, 
+              closely followed by Europe and Asia. While North and South America both display 
+              comparable average internet speeds, were just below the cut-off for the top three spots.
+              <br><br>
+              However, Africa displays the slowest average speed, a difference that can be 
+              attributed to factors such as <b>lack of accessibility, technological advancement, 
+              and infrastructure</b>.
+          </p>
           </div>
         </div>
-  
-          <div class="pure-u-1-2">
-            <h2>idk</h2>
-            <div id="vis4" class="vis-container2"></div>
-          </div>
-  
-      <div class="pure-g2">
+        <div class="pure-u-2-3">
+          <div id="vis5" class="vis-container"></div>
+        </div>
+      </div>
+      <!-- end pure grid group -->   
+      
+      <!-- pure grid group AUTHOR -->
+      <div class="pure-g">
         <div class="pure-u-1-1 small-font">
-          <p>This visualisation is created by Serena Nguyen.</p>
-            <p>The datasource used is <a href="https://www.kaggle.com/datasets/ramjasmaurya/1-gb-internet-price" target=" _blank">Internet Prices around 200+ countries in 2022. </href></a></p>
-        </div>
+          <p>Visualisation created by Serena Nguyen.</br>
+            Data from <a href="https://www.kaggle.com/datasets/ramjasmaurya/1-gb-internet-price" target=" _blank">Internet Prices around 200+ countries in 2022. </href></a>
+          </p>
+          </div>
       </div>
-  
-  
-    </div> <!-- end page -->
+      <!-- end pure grid group -->   
 
-  <script type="text/javascript">
+    <!-- end page -->
+    </div> 
+
+<script type="text/javascript">
     var specVis1 = "js/ChoroplethMap.json";
     var specVis2 = "js/BubbleMap.json";
     var specVis3 = "js/BarChart.json";
-    var specVis4 = "js/RadialBarChart.json";
+    var specVis4 = "js/DotPlot.json";
+    var specVis5 = "js/ThresholdBarChart.json";
 
     vegaEmbed('#vis1', specVis1, { "actions": false });
 
     vegaEmbed('#vis2', specVis2, { "actions": false }).then(function (result) {
-      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 
     vegaEmbed('#vis3', specVis3, { "actions": false }).then(function (result) {
-      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 
     vegaEmbed('#vis4', specVis4, { "actions": false }).then(function (result) {
-      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis5', specVis5, { "actions": false }).then(function (result) {
     }).catch(console.error);
   </script>
 </body>
